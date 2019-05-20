@@ -14,11 +14,8 @@ public class Paiement {
 
     @Column(unique = true)
     private Integer idCommande;
-
     private Double montant;
-
     private Long numeroCarte;
-
     public Paiement() {
     }
 

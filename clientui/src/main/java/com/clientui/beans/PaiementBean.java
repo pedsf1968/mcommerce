@@ -8,37 +8,21 @@ public class PaiementBean {
 
     public PaiementBean() { }
 
-    public int getId() {
-        return id;
-    }
+    public int getId() { return id; }
 
-    public void setId(int id) {
-        this.id = id;
-    }
+    public void setId(int id) { this.id = id; }
 
-    public Integer getIdCommande() {
-        return idCommande;
-    }
+    public Integer getIdCommande() { return idCommande; }
 
-    public void setIdCommande(Integer idCommande) {
-        this.idCommande = idCommande;
-    }
+    public void setIdCommande(Integer idCommande) { this.idCommande = idCommande; }
 
-    public Double getMontant() {
-        return montant;
-    }
+    public Double getMontant() { return montant; }
 
-    public void setMontant(Double montant) {
-        this.montant = montant;
-    }
+    public void setMontant(Double montant) { this.montant = montant; }
 
-    public Long getNumeroCarte() {
-        return numeroCarte;
-    }
+    public Long getNumeroCarte() { return numeroCarte; }
 
-    public void setNumeroCarte(Long numeroCarte) {
-        this.numeroCarte = numeroCarte;
-    }
+    public void setNumeroCarte(Long numeroCarte) { this.numeroCarte = numeroCarte; }
 
     @Override
     public String toString() {
