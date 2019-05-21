@@ -11,9 +11,16 @@
         <module name="mcommandes" />
         <module name="mproduits" />
       </profile>
+      <profile name="Annotation profile for config-serveur" enabled="true">
+        <sourceOutputDir name="../config-serveur/target/generated-sources/annotations" />
+        <sourceTestOutputDir name="../config-serveur/target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="config-server" />
+      </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="clientui" target="1.8" />
+      <module name="config-server" target="1.8" />
       <module name="mcommandes" target="1.8" />
       <module name="mpaiement" target="1.8" />
       <module name="mproduits" target="1.8" />
@@ -22,6 +29,7 @@
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="clientui" options="-parameters" />
+      <module name="config-server" options="-parameters" />
       <module name="mcommandes" options="-parameters" />
       <module name="mpaiement" options="-parameters" />
       <module name="mproduits" options="-parameters" />
