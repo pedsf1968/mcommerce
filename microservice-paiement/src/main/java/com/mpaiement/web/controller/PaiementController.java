@@ -30,8 +30,8 @@ public class PaiementController {
     public ResponseEntity<Paiement>  payerUneCommande(@RequestBody Paiement paiement){
 
         //Vérifions s'il y a déjà un paiement enregistré pour cette commande
-     //  Paiement paiementExistant = paiementDao.findByidCommande(paiement.getIdCommande());
-      //  if(paiementExistant != null) throw new PaiementExistantException("Cette commande est déjà payée");
+        Paiement paiementExistant = paiementDao.findByidCommande(paiement.getIdCommande());
+        if(paiementExistant != null) throw new PaiementExistantException("Cette commande est déjà payée");
 
         //Enregistrer le paiement
         Paiement nouveauPaiement = paiementDao.save(paiement);
