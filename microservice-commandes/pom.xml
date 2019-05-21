@@ -35,7 +35,6 @@
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
 		</dependency>
 
-
 		<dependency>
 			<groupId>com.h2database</groupId>
 			<artifactId>h2</artifactId>
@@ -49,7 +48,7 @@
 		</dependency>
         <dependency>
             <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-openfeign-core</artifactId>
+            <artifactId>spring-cloud-context</artifactId>
             <version>2.1.1.RELEASE</version>
             <scope>compile</scope>
         </dependency>
@@ -63,6 +62,4 @@
 			</plugin>
 		</plugins>
 	</build>
-
-
 </project>
