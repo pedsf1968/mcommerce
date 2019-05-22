@@ -6,11 +6,12 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="clientui" />
         <module name="eureka-server" />
+        <module name="zuul-server" />
         <module name="mpaiement" />
-        <module name="mcommandes" />
         <module name="mproduits" />
+        <module name="clientui" />
+        <module name="mcommandes" />
       </profile>
       <profile name="Annotation profile for config-serveur" enabled="true">
         <sourceOutputDir name="../config-serveur/target/generated-sources/annotations" />
@@ -26,6 +27,7 @@
       <module name="mcommandes" target="1.8" />
       <module name="mpaiement" target="1.8" />
       <module name="mproduits" target="1.8" />
+      <module name="zuul-server" target="1.8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
@@ -36,6 +38,7 @@
       <module name="mcommandes" options="-parameters" />
       <module name="mpaiement" options="-parameters" />
       <module name="mproduits" options="-parameters" />
+      <module name="zuul-server" options="-parameters" />
     </option>
   </component>
 </project>
