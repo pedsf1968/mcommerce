@@ -7,6 +7,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="clientui" />
+        <module name="eureka-server" />
         <module name="mpaiement" />
         <module name="mcommandes" />
         <module name="mproduits" />
@@ -21,6 +22,7 @@
     <bytecodeTargetLevel>
       <module name="clientui" target="1.8" />
       <module name="config-server" target="1.8" />
+      <module name="eureka-server" target="1.8" />
       <module name="mcommandes" target="1.8" />
       <module name="mpaiement" target="1.8" />
       <module name="mproduits" target="1.8" />
@@ -30,6 +32,7 @@
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="clientui" options="-parameters" />
       <module name="config-server" options="-parameters" />
+      <module name="eureka-server" options="-parameters" />
       <module name="mcommandes" options="-parameters" />
       <module name="mpaiement" options="-parameters" />
       <module name="mproduits" options="-parameters" />
