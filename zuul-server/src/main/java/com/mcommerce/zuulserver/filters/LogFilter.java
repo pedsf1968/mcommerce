@@ -38,7 +38,7 @@ public class LogFilter extends ZuulFilter {
         // on envoie juste un message dans la console pour vérifier qu'il y a filtrage
         HttpServletRequest req = RequestContext.getCurrentContext().getRequest();
 
-        log.info("************** Requête interceptée : " + req.getRequestURI());
+        log.info("************** Requête interceptée : " + req.getRequestURL());
         return null;
     }
 }
