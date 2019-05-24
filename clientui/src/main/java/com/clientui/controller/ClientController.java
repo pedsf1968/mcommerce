@@ -6,6 +6,8 @@ import com.clientui.beans.ProductBean;
 import com.clientui.proxies.MicroserviceCommandeProxy;
 import com.clientui.proxies.MicroservicePaiementProxy;
 import com.clientui.proxies.MicroserviceProduitsProxy;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -30,6 +32,7 @@ public class ClientController {
     @Autowired
     private MicroservicePaiementProxy mPaiementProxy;
 
+    Logger log = LoggerFactory.getLogger(this.getClass());
 
     /*
     * Étape (1)
@@ -39,7 +42,7 @@ public class ClientController {
     * */
     @RequestMapping("/")
     public String accueil(Model model){
-
+        log.info("Envoi requête vers microservice-produits");
         List<ProductBean> produits =  mProduitsProxy.listeDesProduits();
 
         model.addAttribute("produits", produits);
@@ -54,7 +57,7 @@ public class ClientController {
     * */
     @RequestMapping("/details-produit/{id}")
     public String ficheProduit(@PathVariable int id,  Model model){
-
+        log.info("ClientController : Affichage du détail d'un produit");
         ProductBean produit = mProduitsProxy.recupererUnProduit(id);
 
         model.addAttribute("produit", produit);
@@ -68,20 +71,22 @@ public class ClientController {
      **/
     @RequestMapping("/commander-produit/{idProduit}/{montant}")
     public String passerCommande(@PathVariable int idProduit, @PathVariable Double montant, Model model) {
-
+        log.info("ClientController : Affichage de la page de paiement");
         CommandeBean commande = new CommandeBean();
 
         //On renseigne les propriétés de l'objet de type CommandeBean que nous avons crée
         commande.setProductId(idProduit);
         commande.setQuantite(1);
         commande.setDateCommande(new Date());
+        log.info("ClientController : passerCommande : " + commande);
 
         //appel du microservice commandes grâce à Feign et on récupère en retour les détails de la commande créée, notamment son ID (étape 4).
+        ResponseEntity<CommandeBean> commandeAjoutee = mCommandesProxy.ajouterCommande(commande);
 
-        CommandeBean commandeAjoutee = mCommandesProxy.ajouterCommande(commande);
+        log.info("ClientController : commandeAjoutée : " + commandeAjoutee.getBody());
 
         //on passe à la vue l'objet commande et le montant de celle-ci afin d'avoir les informations nécessaire pour le paiement
-        model.addAttribute("commande", commandeAjoutee);
+        model.addAttribute("commande", commandeAjoutee.getBody());
         model.addAttribute("montant", montant);
 
         return "Paiement";
@@ -93,6 +98,7 @@ public class ClientController {
      **/
     @RequestMapping("/payer-commande/{idCommande}/{montant}")
     public String payerCommande(@PathVariable int idCommande, @PathVariable Double montant, Model model){
+        log.info("ClientController : Affichage de la page de confirmation");
 
         PaiementBean paiementAExecuter = new PaiementBean();
 

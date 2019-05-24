@@ -4,6 +4,8 @@ import com.mproduits.configurations.ApplicationPropertiesConfiguration;
 import com.mproduits.dao.ProductDao;
 import com.mproduits.model.Product;
 import com.mproduits.web.exceptions.ProductNotFoundException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -18,12 +20,15 @@ public class ProductController {
     @Autowired
     ProductDao productDao;
 
+    Logger log = LoggerFactory.getLogger(this.getClass());
+
     @Autowired
     ApplicationPropertiesConfiguration appProperties;
 
     // Affiche la liste de tous les produits disponibles
     @GetMapping(value = "/Produits")
     public List<Product> listeDesProduits(){
+        log.info("ProductController :Récupération de la liste des produits");
 
         List<Product> products = productDao.findAll();
 
@@ -33,12 +38,12 @@ public class ProductController {
         List<Product> listeLimitee = products.subList(0,appProperties.getLimitDeProduits());
 
         return listeLimitee;
-
     }
 
     //Récuperer un produit par son id
     @GetMapping( value = "/Produits/{id}")
     public Optional<Product> recupererUnProduit(@PathVariable int id) {
+        log.info("ProductController : Récupération du produit : " + id);
 
         Optional<Product> product = productDao.findById(id);
 

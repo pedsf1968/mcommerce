@@ -7,17 +7,12 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="eureka-server" />
+        <module name="config-server" />
         <module name="zuul-server" />
         <module name="mpaiement" />
         <module name="mproduits" />
         <module name="clientui" />
         <module name="mcommandes" />
-      </profile>
-      <profile name="Annotation profile for config-serveur" enabled="true">
-        <sourceOutputDir name="../config-serveur/target/generated-sources/annotations" />
-        <sourceTestOutputDir name="../config-serveur/target/generated-test-sources/test-annotations" />
-        <outputRelativeToContentRoot value="true" />
-        <module name="config-server" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>

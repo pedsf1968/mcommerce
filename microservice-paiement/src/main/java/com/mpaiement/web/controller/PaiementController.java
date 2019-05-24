@@ -7,6 +7,8 @@ import com.mpaiement.proxies.MicroserviceCommandeProxy;
 import com.mpaiement.web.exceptions.PaiementExistantException;
 import com.mpaiement.web.exceptions.PaiementImpossibleException;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -19,6 +21,8 @@ public class PaiementController {
 
     @Autowired
     PaiementDao paiementDao;
+
+    Logger log = LoggerFactory.getLogger(this.getClass());
 
     @Autowired
     MicroserviceCommandeProxy microserviceCommandeProxy;
@@ -50,6 +54,8 @@ public class PaiementController {
 
         //on envoi l'objet commande mis à jour au microservice commande afin de mettre à jour le status de la commande.
         microserviceCommandeProxy.updateCommande(commande);
+
+        log.info("Paiement du produit");
 
         //on renvoi 201 CREATED pour notifier le client au le paiement à été enregistré
         return new ResponseEntity<Paiement>(nouveauPaiement, HttpStatus.CREATED);

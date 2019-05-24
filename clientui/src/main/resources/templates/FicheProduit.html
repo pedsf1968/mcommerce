@@ -15,7 +15,7 @@
             <p th:text="${produit.titre}" class="font-weight-bold"></p>
             <p th:text="${produit.description}"></p>
             <p>
-                <a th:href="@{|/commander-produit/${produit.id}/${produit.prix}||}" class="font-weight-bold">COMMANDER</a>
+                <a th:href="@{|/commander-produit/${produit.id}/${produit.prix}|}" class="font-weight-bold">COMMANDER</a>
             </p>
         </div>
     </div>
