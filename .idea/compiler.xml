@@ -12,6 +12,7 @@
         <module name="mpaiement" />
         <module name="mproduits" />
         <module name="clientui" />
+        <module name="springadmin" />
         <module name="mcommandes" />
       </profile>
     </annotationProcessing>
@@ -22,6 +23,7 @@
       <module name="mcommandes" target="1.8" />
       <module name="mpaiement" target="1.8" />
       <module name="mproduits" target="1.8" />
+      <module name="springadmin" target="1.8" />
       <module name="zuul-server" target="1.8" />
     </bytecodeTargetLevel>
   </component>
